@@ -1,0 +1,225 @@
+// @version=6
+indicator("God of Scalper", shorttitle="Scalper", overlay=true, max_boxes_count=500, max_lines_count=500)
+
+// ============================================================================
+// INPUTS
+// ============================================================================
+
+i_spikeMultiplier5m = input.float(5.0, "5m Spike Multiplier", minval=2.0, maxval=200.0, step=0.5, 
+                                  tooltip="5m: Volume must be > X times previous candle volume")
+i_spikeMultiplier1m = input.float(5.0, "1m Spike Multiplier", minval=2.0, maxval=200.0, step=0.5, 
+                                  tooltip="1m: Volume must be > X times previous MA")
+i_maWindow = input.int(10, "1m MA Window", minval=5, maxval=30, step=5,
+                       tooltip="MA window for 1m spike detection (10 or 20)")
+i_cooldownCandles = input.int(5, "Cooldown Candles", minval=1, maxval=10, step=1,
+                              tooltip="Number of candles after spike that must stay inside zone", group="Zone Settings")
+i_showLabel = input.bool(true, "Show Spike Labels", group="Visuals")
+i_showZones = input.bool(true, "Show Zones", group="Visuals")
+i_showMidLine = input.bool(true, "Show Mid Line", group="Visuals")
+i_colorOverlap = input.color(color.green, "Overlap Marker Color", group="Visuals")
+i_colorInvalid = input.color(color.gray, "Invalid Zone Color", group="Visuals")
+
+// ============================================================================
+// 5m VOLUME SPIKE DETECTION (current timeframe)
+// ============================================================================
+
+// 5m: Use previous candle volume only (shift by 1)
+prevVolume5m = volume[1]
+volumeRatio5m = prevVolume5m > 0 ? volume / prevVolume5m : 0
+isSpike5m = volumeRatio5m >= i_spikeMultiplier5m and prevVolume5m > 0
+
+// ============================================================================
+// 1m VOLUME SPIKE DETECTION (using request.security)
+// ============================================================================
+
+// Get 1m volume data
+[vol1m, vol1mMA] = request.security(syminfo.tickerid, "1", [volume, ta.sma(volume[1], i_maWindow)])
+volumeRatio1m = vol1mMA > 0 ? vol1m / vol1mMA : 0
+isSpike1m = volumeRatio1m >= i_spikeMultiplier1m and vol1mMA > 0
+
+// ============================================================================
+// OVERLAP DETECTION - Both 1m AND 5m spike must occur
+// ============================================================================
+
+isOverlapSpike = isSpike5m and isSpike1m
+
+// ============================================================================
+// ZONE LOGIC - Draw zone from spike candle, validate with cooldown
+// ============================================================================
+
+// Track spike zone state
+var float zoneHigh = na
+var float zoneLow = na
+var float zoneMid = na
+var int zoneCooldown = 0
+var bool zoneValid = false
+var bool zoneActive = false
+var box currentZoneBox = na
+var line currentMidLine = na
+var int zoneStartBar = na
+var string zoneDirection = na  // 'LONG' or 'SHORT' based on first touch
+
+// Spike body mid-point calculation
+spikeBodyHigh = math.max(open, close)
+spikeBodyLow = math.min(open, close)
+spikeBodyMid = (spikeBodyHigh + spikeBodyLow) / 2
+
+// When new overlap spike detected, create new zone
+if isOverlapSpike and i_showZones
+    // Close previous zone box at current bar
+    if not na(currentZoneBox)
+        box.set_right(currentZoneBox, bar_index)
+    if not na(currentMidLine)
+        line.set_x2(currentMidLine, bar_index)
+    
+    // Initialize new zone
+    zoneHigh := high
+    zoneLow := low
+    zoneMid := spikeBodyMid
+    zoneCooldown := i_cooldownCandles
+    zoneValid := true  // Assume valid until proven otherwise
+    zoneActive := true
+    zoneStartBar := bar_index
+    zoneDirection := na  // Reset direction for new zone
+    
+    // Create zone box (will extend right) - starts white/neutral until direction determined
+    currentZoneBox := box.new(bar_index, zoneHigh, bar_index + 100, zoneLow, 
+                              border_color=color.new(color.white, 70), 
+                              bgcolor=color.new(color.white, 90),
+                              border_width=1)
+    
+    // Create mid line
+    if i_showMidLine
+        currentMidLine := line.new(bar_index, zoneMid, bar_index + 100, zoneMid,
+                                   color=color.new(color.yellow, 50),
+                                   style=line.style_dashed,
+                                   width=1)
+
+// Cooldown validation - check if price breaks zone during cooldown
+if zoneActive and zoneCooldown > 0 and not isOverlapSpike
+    zoneCooldown := zoneCooldown - 1
+    
+    // Check if current candle breaks zone (invalidates)
+    if high >= zoneHigh or low <= zoneLow
+        zoneValid := false
+        // Dim the zone (change to gray)
+        if not na(currentZoneBox)
+            box.set_border_color(currentZoneBox, color.new(i_colorInvalid, 70))
+            box.set_bgcolor(currentZoneBox, color.new(i_colorInvalid, 95))
+        if not na(currentMidLine)
+            line.set_color(currentMidLine, color.new(i_colorInvalid, 70))
+
+// After cooldown ends, finalize zone status
+if zoneActive and zoneCooldown == 0 and zoneValid
+    // Zone passed cooldown validation - keep it neutral until direction determined
+    zoneActive := false
+
+// Direction detection - after cooldown, check for first touch above/below zone
+if not zoneActive and zoneValid and na(zoneDirection) and not na(zoneHigh) and not isOverlapSpike
+    // Touch above zone = LONG direction (green)
+    if high > zoneHigh
+        zoneDirection := "LONG"
+        if not na(currentZoneBox)
+            box.set_border_color(currentZoneBox, color.new(color.green, 70))
+            box.set_bgcolor(currentZoneBox, color.new(color.green, 85))
+        if not na(currentMidLine)
+            line.set_color(currentMidLine, color.new(color.green, 50))
+    // Touch below zone = SHORT direction (red)
+    else if low < zoneLow
+        zoneDirection := "SHORT"
+        if not na(currentZoneBox)
+            box.set_border_color(currentZoneBox, color.new(color.red, 70))
+            box.set_bgcolor(currentZoneBox, color.new(color.red, 85))
+        if not na(currentMidLine)
+            line.set_color(currentMidLine, color.new(color.red, 50))
+
+// Extend zone box to current bar
+if not na(currentZoneBox) and bar_index > zoneStartBar
+    box.set_right(currentZoneBox, bar_index + 10)
+if not na(currentMidLine) and bar_index > zoneStartBar
+    line.set_x2(currentMidLine, bar_index + 10)
+
+// ============================================================================
+// VISUALIZATION - GREEN for overlap only
+// ============================================================================
+
+// Plot GREEN marker for OVERLAP spikes (1m + 5m)
+plotshape(isOverlapSpike, "Overlap Spike", shape.xcross, location.abovebar, 
+          i_colorOverlap, size=size.tiny, text="")
+
+// Add label with volume ratios for overlap
+if isOverlapSpike and i_showLabel
+    label.new(bar_index, high * 1.002, 
+              "5m:" + str.tostring(volumeRatio5m, "#.#") + "x\n1m:" + str.tostring(volumeRatio1m, "#.#") + "x", 
+              color=color.new(i_colorOverlap, 80), 
+              textcolor=i_colorOverlap, 
+              style=label.style_label_down, 
+              size=size.small)
+
+// ============================================================================
+// INFO TABLE
+// ============================================================================
+
+var table infoTable = table.new(position.bottom_right, 2, 4, bgcolor=color.new(color.black, 80), border_width=1)
+
+if barstate.islast
+    table.cell(infoTable, 0, 0, "5m Vol", text_color=color.white, text_size=size.small)
+    table.cell(infoTable, 1, 0, str.tostring(volume, format.volume), text_color=color.white, text_size=size.small)
+    table.cell(infoTable, 0, 1, "5m Ratio", text_color=color.white, text_size=size.small)
+    ratio5mColor = isSpike5m ? i_colorOverlap : color.white
+    table.cell(infoTable, 1, 1, str.tostring(volumeRatio5m, "#.##") + "x", text_color=ratio5mColor, text_size=size.small)
+    table.cell(infoTable, 0, 2, "1m Ratio", text_color=color.white, text_size=size.small)
+    ratio1mColor = isSpike1m ? i_colorOverlap : color.white
+    table.cell(infoTable, 1, 2, str.tostring(volumeRatio1m, "#.##") + "x", text_color=ratio1mColor, text_size=size.small)
+    table.cell(infoTable, 0, 3, "Status", text_color=color.white, text_size=size.small)
+    statusText = isOverlapSpike ? "🟢 OVERLAP" : "⚪ NONE"
+    statusColor = isOverlapSpike ? i_colorOverlap : color.gray
+    table.cell(infoTable, 1, 3, statusText, text_color=statusColor, text_size=size.small)
+
+// ============================================================================
+// ALERTS
+// ============================================================================
+
+// Track if we already alerted for this zone's validation
+var bool validAlertSent = false
+
+// Reset alert flag when new spike detected
+if isOverlapSpike
+    validAlertSent := false
+
+// Detect when zone becomes valid (passes cooldown)
+bool zoneJustValidated = zoneActive[1] and not zoneActive and zoneValid and not validAlertSent
+if zoneJustValidated
+    validAlertSent := true
+
+// Detect direction changes
+var string lastAlertedDirection = na
+bool longDirectionDetected = not na(zoneDirection) and zoneDirection == "LONG" and (na(lastAlertedDirection) or lastAlertedDirection != "LONG")
+bool shortDirectionDetected = not na(zoneDirection) and zoneDirection == "SHORT" and (na(lastAlertedDirection) or lastAlertedDirection != "SHORT")
+
+if longDirectionDetected or shortDirectionDetected
+    lastAlertedDirection := zoneDirection
+
+// Reset direction alert when new spike detected
+if isOverlapSpike
+    lastAlertedDirection := na
+
+// ============================================================================
+// ALERT CONDITIONS - Selectable in TradingView Alert Dialog
+// ============================================================================
+
+alertcondition(isOverlapSpike, 
+               title="Overlap Spike Detected", 
+               message="� OVERLAP SPIKE on {{ticker}} | 5m: {{plot_0}}x | 1m: {{plot_1}}x | Price: {{close}}")
+
+alertcondition(zoneJustValidated, 
+               title="Valid Zone (Spike Validated)", 
+               message="✅ VALID ZONE on {{ticker}} | Price: {{close}} | Zone passed cooldown validation")
+
+alertcondition(longDirectionDetected, 
+               title="Long Direction Detected", 
+               message="🟢 LONG DIRECTION on {{ticker}} | Price: {{close}} | Price touched above zone")
+
+alertcondition(shortDirectionDetected, 
+               title="Short Direction Detected", 
+               message="🔴 SHORT DIRECTION on {{ticker}} | Price: {{close}} | Price touched below zone")
