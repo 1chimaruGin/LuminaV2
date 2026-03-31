@@ -1,0 +1,24 @@
+columns format version: 1
+22 columns:
+`wallet_address` LowCardinality(String)
+`token_address` LowCardinality(String)
+`token_symbol` String
+`token_name` String
+`chain` LowCardinality(String)
+`buy_count` UInt32
+`sell_count` UInt32
+`total_buy_usd` Float64
+`total_sell_usd` Float64
+`total_buy_tokens` Float64
+`total_sell_tokens` Float64
+`avg_buy_price` Float64
+`avg_sell_price` Float64
+`first_buy_ts` UInt64
+`last_buy_ts` UInt64
+`first_sell_ts` UInt64
+`last_sell_ts` UInt64
+`hold_duration_sec` UInt64
+`realized_pnl_usd` Float64
+`realized_pnl_pct` Float32
+`exit_type` LowCardinality(String)
+`updated_at` DateTime64(3)

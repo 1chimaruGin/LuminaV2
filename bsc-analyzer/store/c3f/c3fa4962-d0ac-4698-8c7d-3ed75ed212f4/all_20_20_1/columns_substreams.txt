@@ -1,0 +1,22 @@
+columns substreams version: 1
+9 columns:
+3 substreams for column `token_address`:
+	token_address.dict_prefix
+	token_address.dict
+	token_address
+1 substreams for column `total_kol_buyers`:
+	total_kol_buyers
+1 substreams for column `avg_pnl_pct`:
+	avg_pnl_pct
+1 substreams for column `max_pnl_pct`:
+	max_pnl_pct
+1 substreams for column `min_pnl_pct`:
+	min_pnl_pct
+1 substreams for column `avg_hold_sec`:
+	avg_hold_sec
+1 substreams for column `label`:
+	label
+1 substreams for column `is_profitable`:
+	is_profitable
+1 substreams for column `labeled_at`:
+	labeled_at

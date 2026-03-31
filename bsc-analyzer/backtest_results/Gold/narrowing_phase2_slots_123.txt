@@ -1,0 +1,222 @@
+========== SLOT 1 ==========
+
+========================================================================
+  After KOL #1 (`slot_1`) — sniper entry vs later peak/low
+  Source: backtest_results/kol_backtest_30d_latest.jsonl
+  Rows in file: 813
+========================================================================
+
+  Delay profile: plus_1_block  (n=813)
+  Metric                              Value
+  ------------------------------------------
+  Median peak_x                        1.16x
+  Mean peak_x                          1.71x
+  Stdev peak_x                         2.37
+  Median low_x (drawdown)              0.55x
+  Mean low_x                           0.54x
+  Share with low_x < 0.5 (≥50% dump)        41.2%
+
+  Hit rate (peak_x ≥ threshold):
+    ≥  1.3x     36.8%  (299/813)
+    ≥  1.5x     25.5%  (207/813)
+    ≥  2.0x     14.9%  (121/813)
+    ≥  3.0x      7.3%  (59/813)
+    ≥  5.0x      3.6%  (29/813)
+    ≥ 10.0x      1.0%  (8/813)
+
+  Delay profile: plus_2_block  (n=813)
+  Metric                              Value
+  ------------------------------------------
+  Median peak_x                        1.16x
+  Mean peak_x                          1.72x
+  Stdev peak_x                         2.48
+  Median low_x (drawdown)              0.56x
+  Mean low_x                           0.54x
+  Share with low_x < 0.5 (≥50% dump)        39.4%
+
+  Hit rate (peak_x ≥ threshold):
+    ≥  1.3x     35.4%  (288/813)
+    ≥  1.5x     26.2%  (213/813)
+    ≥  2.0x     14.5%  (118/813)
+    ≥  3.0x      7.0%  (57/813)
+    ≥  5.0x      3.6%  (29/813)
+    ≥ 10.0x      1.0%  (8/813)
+
+  Delay profile: plus_2s  (n=813)
+  Metric                              Value
+  ------------------------------------------
+  Median peak_x                        1.16x
+  Mean peak_x                          1.71x
+  Stdev peak_x                         2.37
+  Median low_x (drawdown)              0.55x
+  Mean low_x                           0.54x
+  Share with low_x < 0.5 (≥50% dump)        41.2%
+
+  Hit rate (peak_x ≥ threshold):
+    ≥  1.3x     36.8%  (299/813)
+    ≥  1.5x     25.5%  (207/813)
+    ≥  2.0x     14.9%  (121/813)
+    ≥  3.0x      7.3%  (59/813)
+    ≥  5.0x      3.6%  (29/813)
+    ≥ 10.0x      1.0%  (8/813)
+
+────────────────────────────────────────────────────────────────────────
+  Summary — peak hit rates by delay profile
+
+  Profile           ≥1.3x  ≥1.5x  ≥2x  ≥3x  ≥5x  ≥10x
+  -----------------------------------------------------
+  plus_1_block       36.8%   25.5%   14.9%    7.3%    3.6%    1.0%
+  plus_2_block       35.4%   26.2%   14.5%    7.0%    3.6%    1.0%
+  plus_2s            36.8%   25.5%   14.9%    7.3%    3.6%    1.0%
+
+========================================================================
+
+
+========== SLOT 2 ==========
+
+========================================================================
+  After KOL #2 (`slot_2`) — sniper entry vs later peak/low
+  Source: backtest_results/kol_backtest_30d_latest.jsonl
+  Rows in file: 813
+========================================================================
+
+  Delay profile: plus_1_block  (n=194)
+  Metric                              Value
+  ------------------------------------------
+  Median peak_x                        1.22x
+  Mean peak_x                          2.12x
+  Stdev peak_x                         4.56
+  Median low_x (drawdown)              0.35x
+  Mean low_x                           0.38x
+  Share with low_x < 0.5 (≥50% dump)        74.7%
+
+  Hit rate (peak_x ≥ threshold):
+    ≥  1.3x     44.8%  (87/194)
+    ≥  1.5x     30.9%  (60/194)
+    ≥  2.0x     15.5%  (30/194)
+    ≥  3.0x      8.2%  (16/194)
+    ≥  5.0x      4.6%  (9/194)
+    ≥ 10.0x      2.6%  (5/194)
+
+  Delay profile: plus_2_block  (n=194)
+  Metric                              Value
+  ------------------------------------------
+  Median peak_x                        1.24x
+  Mean peak_x                          2.09x
+  Stdev peak_x                         3.99
+  Median low_x (drawdown)              0.36x
+  Mean low_x                           0.38x
+  Share with low_x < 0.5 (≥50% dump)        74.7%
+
+  Hit rate (peak_x ≥ threshold):
+    ≥  1.3x     45.4%  (88/194)
+    ≥  1.5x     30.4%  (59/194)
+    ≥  2.0x     17.0%  (33/194)
+    ≥  3.0x      9.3%  (18/194)
+    ≥  5.0x      4.6%  (9/194)
+    ≥ 10.0x      2.6%  (5/194)
+
+  Delay profile: plus_2s  (n=194)
+  Metric                              Value
+  ------------------------------------------
+  Median peak_x                        1.22x
+  Mean peak_x                          2.12x
+  Stdev peak_x                         4.55
+  Median low_x (drawdown)              0.35x
+  Mean low_x                           0.38x
+  Share with low_x < 0.5 (≥50% dump)        74.7%
+
+  Hit rate (peak_x ≥ threshold):
+    ≥  1.3x     44.8%  (87/194)
+    ≥  1.5x     30.9%  (60/194)
+    ≥  2.0x     15.5%  (30/194)
+    ≥  3.0x      8.2%  (16/194)
+    ≥  5.0x      4.6%  (9/194)
+    ≥ 10.0x      2.6%  (5/194)
+
+────────────────────────────────────────────────────────────────────────
+  Summary — peak hit rates by delay profile
+
+  Profile           ≥1.3x  ≥1.5x  ≥2x  ≥3x  ≥5x  ≥10x
+  -----------------------------------------------------
+  plus_1_block       44.8%   30.9%   15.5%    8.2%    4.6%    2.6%
+  plus_2_block       45.4%   30.4%   17.0%    9.3%    4.6%    2.6%
+  plus_2s            44.8%   30.9%   15.5%    8.2%    4.6%    2.6%
+
+========================================================================
+
+
+========== SLOT 3 ==========
+
+========================================================================
+  After KOL #3 (`slot_3`) — sniper entry vs later peak/low
+  Source: backtest_results/kol_backtest_30d_latest.jsonl
+  Rows in file: 813
+========================================================================
+
+  Delay profile: plus_1_block  (n=72)
+  Metric                              Value
+  ------------------------------------------
+  Median peak_x                        1.35x
+  Mean peak_x                          1.99x
+  Stdev peak_x                         1.89
+  Median low_x (drawdown)              0.25x
+  Mean low_x                           0.36x
+  Share with low_x < 0.5 (≥50% dump)        72.2%
+
+  Hit rate (peak_x ≥ threshold):
+    ≥  1.3x     54.2%  (39/72)
+    ≥  1.5x     43.1%  (31/72)
+    ≥  2.0x     20.8%  (15/72)
+    ≥  3.0x      9.7%  (7/72)
+    ≥  5.0x      6.9%  (5/72)
+    ≥ 10.0x      1.4%  (1/72)
+
+  Delay profile: plus_2_block  (n=72)
+  Metric                              Value
+  ------------------------------------------
+  Median peak_x                        1.40x
+  Mean peak_x                          1.95x
+  Stdev peak_x                         1.62
+  Median low_x (drawdown)              0.25x
+  Mean low_x                           0.35x
+  Share with low_x < 0.5 (≥50% dump)        76.4%
+
+  Hit rate (peak_x ≥ threshold):
+    ≥  1.3x     58.3%  (42/72)
+    ≥  1.5x     40.3%  (29/72)
+    ≥  2.0x     25.0%  (18/72)
+    ≥  3.0x     11.1%  (8/72)
+    ≥  5.0x      6.9%  (5/72)
+    ≥ 10.0x      1.4%  (1/72)
+
+  Delay profile: plus_2s  (n=72)
+  Metric                              Value
+  ------------------------------------------
+  Median peak_x                        1.35x
+  Mean peak_x                          1.99x
+  Stdev peak_x                         1.89
+  Median low_x (drawdown)              0.25x
+  Mean low_x                           0.36x
+  Share with low_x < 0.5 (≥50% dump)        72.2%
+
+  Hit rate (peak_x ≥ threshold):
+    ≥  1.3x     54.2%  (39/72)
+    ≥  1.5x     43.1%  (31/72)
+    ≥  2.0x     20.8%  (15/72)
+    ≥  3.0x      9.7%  (7/72)
+    ≥  5.0x      6.9%  (5/72)
+    ≥ 10.0x      1.4%  (1/72)
+
+────────────────────────────────────────────────────────────────────────
+  Summary — peak hit rates by delay profile
+
+  Profile           ≥1.3x  ≥1.5x  ≥2x  ≥3x  ≥5x  ≥10x
+  -----------------------------------------------------
+  plus_1_block       54.2%   43.1%   20.8%    9.7%    6.9%    1.4%
+  plus_2_block       58.3%   40.3%   25.0%   11.1%    6.9%    1.4%
+  plus_2s            54.2%   43.1%   20.8%    9.7%    6.9%    1.4%
+
+========================================================================
+
+

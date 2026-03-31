@@ -1,0 +1,11 @@
+columns format version: 1
+9 columns:
+`token_address` LowCardinality(String)
+`total_kol_buyers` UInt8
+`avg_pnl_pct` Float32
+`max_pnl_pct` Float32
+`min_pnl_pct` Float32
+`avg_hold_sec` UInt64
+`label` Enum8('WIN_BIG' = 1, 'WIN' = 2, 'BREAKEVEN' = 3, 'LOSS' = 4, 'RUG' = 5)
+`is_profitable` UInt8
+`labeled_at` DateTime64(3)

@@ -1,0 +1,135 @@
+columns substreams version: 1
+44 columns:
+3 substreams for column `token_address`:
+	token_address.dict_prefix
+	token_address.dict
+	token_address
+3 substreams for column `pair_address`:
+	pair_address.dict_prefix
+	pair_address.dict
+	pair_address
+2 substreams for column `token_symbol`:
+	token_symbol.size
+	token_symbol
+2 substreams for column `token_name`:
+	token_name.size
+	token_name
+3 substreams for column `chain`:
+	chain.dict_prefix
+	chain.dict
+	chain
+2 substreams for column `pair_created_block`:
+	pair_created_block.sparse.idx
+	pair_created_block
+2 substreams for column `pair_created_ts`:
+	pair_created_ts.sparse.idx
+	pair_created_ts
+1 substreams for column `first_kol_buy_ts`:
+	first_kol_buy_ts
+2 substreams for column `token_age_at_buy_sec`:
+	token_age_at_buy_sec.sparse.idx
+	token_age_at_buy_sec
+2 substreams for column `initial_liq_bnb`:
+	initial_liq_bnb.sparse.idx
+	initial_liq_bnb
+2 substreams for column `initial_liq_usd`:
+	initial_liq_usd.sparse.idx
+	initial_liq_usd
+2 substreams for column `price_at_entry`:
+	price_at_entry.sparse.idx
+	price_at_entry
+2 substreams for column `is_open_source`:
+	is_open_source.sparse.idx
+	is_open_source
+2 substreams for column `is_proxy`:
+	is_proxy.sparse.idx
+	is_proxy
+2 substreams for column `is_honeypot`:
+	is_honeypot.sparse.idx
+	is_honeypot
+2 substreams for column `buy_tax`:
+	buy_tax.sparse.idx
+	buy_tax
+2 substreams for column `sell_tax`:
+	sell_tax.sparse.idx
+	sell_tax
+2 substreams for column `is_mintable`:
+	is_mintable.sparse.idx
+	is_mintable
+2 substreams for column `has_blacklist`:
+	has_blacklist.sparse.idx
+	has_blacklist
+2 substreams for column `can_take_ownership`:
+	can_take_ownership.sparse.idx
+	can_take_ownership
+2 substreams for column `owner_change_balance`:
+	owner_change_balance.sparse.idx
+	owner_change_balance
+2 substreams for column `hidden_owner`:
+	hidden_owner.sparse.idx
+	hidden_owner
+2 substreams for column `selfdestruct`:
+	selfdestruct.sparse.idx
+	selfdestruct
+2 substreams for column `external_call`:
+	external_call.sparse.idx
+	external_call
+2 substreams for column `is_renounced`:
+	is_renounced.sparse.idx
+	is_renounced
+2 substreams for column `holder_count`:
+	holder_count.sparse.idx
+	holder_count
+2 substreams for column `top10_holder_pct`:
+	top10_holder_pct.sparse.idx
+	top10_holder_pct
+2 substreams for column `creator_pct`:
+	creator_pct.sparse.idx
+	creator_pct
+2 substreams for column `lp_locked`:
+	lp_locked.sparse.idx
+	lp_locked
+2 substreams for column `lp_lock_pct`:
+	lp_lock_pct.sparse.idx
+	lp_lock_pct
+2 substreams for column `buy_count_5m`:
+	buy_count_5m.sparse.idx
+	buy_count_5m
+2 substreams for column `sell_count_5m`:
+	sell_count_5m.sparse.idx
+	sell_count_5m
+2 substreams for column `unique_buyers_5m`:
+	unique_buyers_5m.sparse.idx
+	unique_buyers_5m
+2 substreams for column `volume_usd_5m`:
+	volume_usd_5m.sparse.idx
+	volume_usd_5m
+3 substreams for column `deployer_address`:
+	deployer_address.dict_prefix
+	deployer_address.dict
+	deployer_address
+2 substreams for column `deployer_total_tokens`:
+	deployer_total_tokens.sparse.idx
+	deployer_total_tokens
+2 substreams for column `deployer_rug_count`:
+	deployer_rug_count.sparse.idx
+	deployer_rug_count
+2 substreams for column `deployer_avg_lifespan_h`:
+	deployer_avg_lifespan_h.sparse.idx
+	deployer_avg_lifespan_h
+1 substreams for column `kol_buyer_count`:
+	kol_buyer_count
+2 substreams for column `kol_wallets`:
+	kol_wallets.size
+	kol_wallets
+2 substreams for column `honeypot_sim_success`:
+	honeypot_sim_success.sparse.idx
+	honeypot_sim_success
+2 substreams for column `honeypot_buy_tax`:
+	honeypot_buy_tax.sparse.idx
+	honeypot_buy_tax
+2 substreams for column `honeypot_sell_tax`:
+	honeypot_sell_tax.sparse.idx
+	honeypot_sell_tax
+1 substreams for column `updated_at`:
+	updated_at

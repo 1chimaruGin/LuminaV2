@@ -1,0 +1,38 @@
+columns substreams version: 1
+14 columns:
+2 substreams for column `wallet_address`:
+	wallet_address.dict
+	wallet_address
+2 substreams for column `token_address`:
+	token_address.dict
+	token_address
+2 substreams for column `token_symbol`:
+	token_symbol.size
+	token_symbol
+2 substreams for column `token_name`:
+	token_name.size
+	token_name
+2 substreams for column `token_logo`:
+	token_logo.size
+	token_logo
+1 substreams for column `side`:
+	side
+1 substreams for column `token_amount`:
+	token_amount
+1 substreams for column `quote_amount`:
+	quote_amount
+1 substreams for column `usd_value`:
+	usd_value
+2 substreams for column `tx_hash`:
+	tx_hash.size
+	tx_hash
+1 substreams for column `block_timestamp`:
+	block_timestamp
+2 substreams for column `chain`:
+	chain.dict
+	chain
+2 substreams for column `pair_label`:
+	pair_label.size
+	pair_label
+1 substreams for column `ingested_at`:
+	ingested_at

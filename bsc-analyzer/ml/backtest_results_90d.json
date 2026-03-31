@@ -1,0 +1,91 @@
+{
+  "strategies": [
+    {
+      "strategy": "1. BASELINE (all trades, 0.03 BNB)",
+      "trades": 711,
+      "total_pnl_bnb": 8.9539,
+      "total_invested_bnb": 21.33,
+      "roi_pct": 42.0,
+      "win_rate": 38.4,
+      "big_win_pct": 18.3,
+      "avg_pnl": 0.012593,
+      "max_drawdown": -0.1768
+    },
+    {
+      "strategy": "2. RULES-ONLY (combo+kc gate)",
+      "trades": 274,
+      "total_pnl_bnb": 12.9446,
+      "total_invested_bnb": 8.73,
+      "roi_pct": 148.3,
+      "win_rate": 53.3,
+      "big_win_pct": 31.8,
+      "avg_pnl": 0.047243,
+      "max_drawdown": -0.0677
+    },
+    {
+      "strategy": "3. RULES + ML (score-adjusted sizing)",
+      "trades": 229,
+      "total_pnl_bnb": 13.1091,
+      "total_invested_bnb": 5.873,
+      "roi_pct": 223.2,
+      "win_rate": 67.7,
+      "big_win_pct": 39.3,
+      "avg_pnl": 0.057245,
+      "max_drawdown": -0.0228
+    }
+  ],
+  "config": {
+    "weak_combos": [
+      "G\u2192A",
+      "A\u2192B",
+      "E\u2192C"
+    ],
+    "tp_ladder": {
+      "kc3": [
+        {
+          "x": 2.0,
+          "sell_pct": 0.5
+        },
+        {
+          "x": 4.0,
+          "sell_pct": 0.5
+        }
+      ],
+      "kc4": [
+        {
+          "x": 2.0,
+          "sell_pct": 0.3
+        },
+        {
+          "x": 5.0,
+          "sell_pct": 0.3
+        },
+        {
+          "x": 10.0,
+          "sell_pct": 0.4
+        }
+      ],
+      "kc5_plus": [
+        {
+          "x": 2.0,
+          "sell_pct": 0.25
+        },
+        {
+          "x": 5.0,
+          "sell_pct": 0.25
+        },
+        {
+          "x": 10.0,
+          "sell_pct": 0.25
+        },
+        {
+          "x": 20.0,
+          "sell_pct": 0.25
+        }
+      ]
+    },
+    "capture_pct": 0.6,
+    "ml_score_source": "oof_csv_row_index",
+    "in_sample_ml": false
+  }
+}

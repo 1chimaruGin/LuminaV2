@@ -1,0 +1,72 @@
+
+================================================================================
+  SLOT × DELAY — peak multiple after our entry (813 tokens)
+================================================================================
+
+  Slot       Delay                 N   Win≥2x   Win≥5x    MedPx    AvgPx
+  ------------------------------------------------------------------------
+  slot_1     plus_1_block        813     15%      4%    1.16x    1.71x
+  slot_1     plus_2_block        813     15%      4%    1.16x    1.72x
+  slot_1     plus_2s             813     15%      4%    1.16x    1.71x
+  slot_2     plus_1_block        194     15%      5%    1.22x    2.12x
+  slot_2     plus_2_block        194     17%      5%    1.24x    2.09x
+  slot_2     plus_2s             194     15%      5%    1.22x    2.12x
+  slot_3     plus_1_block         72     21%      7%    1.35x    1.99x
+  slot_3     plus_2_block         72     25%      7%    1.40x    1.95x
+  slot_3     plus_2s              72     21%      7%    1.35x    1.99x
+
+────────────────────────────────────────────────────────────────────────────────
+  BY KOL (per slot — which wallet filled that ordered slot)
+────────────────────────────────────────────────────────────────────────────────
+
+  slot_1 plus_1_block  0xfe63…87b9          n=396  Win≥2x:  13% Win≥5x:   3% AvgPx:1.62x  0xfe631cd3c9f7e879f936515265302677805f87b9
+  slot_1 plus_2_block  0xfe63…87b9          n=396  Win≥2x:  13% Win≥5x:   3% AvgPx:1.60x  0xfe631cd3c9f7e879f936515265302677805f87b9
+  slot_1 plus_2s  0xfe63…87b9          n=396  Win≥2x:  13% Win≥5x:   3% AvgPx:1.62x  0xfe631cd3c9f7e879f936515265302677805f87b9
+  slot_1 plus_1_block  0x7a23…d2e6          n=188  Win≥2x:  12% Win≥5x:   3% AvgPx:1.69x  0x7a2363a401b2340c7941dd2eeff0196a5078d2e6
+  slot_1 plus_2_block  0x7a23…d2e6          n=188  Win≥2x:  12% Win≥5x:   3% AvgPx:1.66x  0x7a2363a401b2340c7941dd2eeff0196a5078d2e6
+  slot_1 plus_2s  0x7a23…d2e6          n=188  Win≥2x:  12% Win≥5x:   3% AvgPx:1.69x  0x7a2363a401b2340c7941dd2eeff0196a5078d2e6
+  slot_1 plus_1_block  0x2ce9…3373          n=90   Win≥2x:  27% Win≥5x:   8% AvgPx:2.26x  0x2ce9d43d1cba6ae31d7f07bfe0098dfa2d833373
+  slot_1 plus_2_block  0x2ce9…3373          n=90   Win≥2x:  23% Win≥5x:   8% AvgPx:2.36x  0x2ce9d43d1cba6ae31d7f07bfe0098dfa2d833373
+  slot_1 plus_2s  0x2ce9…3373          n=90   Win≥2x:  27% Win≥5x:   8% AvgPx:2.26x  0x2ce9d43d1cba6ae31d7f07bfe0098dfa2d833373
+  slot_1 plus_1_block  0xbf00…4903          n=81   Win≥2x:  14% Win≥5x:   4% AvgPx:1.61x  0xbf004bff64725914ee36d03b87d6965b0ced4903
+  slot_1 plus_2_block  0xbf00…4903          n=81   Win≥2x:  16% Win≥5x:   4% AvgPx:1.65x  0xbf004bff64725914ee36d03b87d6965b0ced4903
+  slot_1 plus_2s  0xbf00…4903          n=81   Win≥2x:  14% Win≥5x:   4% AvgPx:1.61x  0xbf004bff64725914ee36d03b87d6965b0ced4903
+  slot_2 plus_1_block  0xfe63…87b9          n=55   Win≥2x:  22% Win≥5x:   5% AvgPx:2.31x  0xfe631cd3c9f7e879f936515265302677805f87b9
+  slot_2 plus_2_block  0xfe63…87b9          n=55   Win≥2x:  24% Win≥5x:   5% AvgPx:2.28x  0xfe631cd3c9f7e879f936515265302677805f87b9
+  slot_2 plus_2s  0xfe63…87b9          n=55   Win≥2x:  22% Win≥5x:   5% AvgPx:2.31x  0xfe631cd3c9f7e879f936515265302677805f87b9
+  slot_2 plus_1_block  0x7a23…d2e6          n=54   Win≥2x:   6% Win≥5x:   0% AvgPx:1.36x  0x7a2363a401b2340c7941dd2eeff0196a5078d2e6
+  slot_2 plus_2_block  0x7a23…d2e6          n=54   Win≥2x:   6% Win≥5x:   0% AvgPx:1.36x  0x7a2363a401b2340c7941dd2eeff0196a5078d2e6
+  slot_2 plus_2s  0x7a23…d2e6          n=54   Win≥2x:   6% Win≥5x:   0% AvgPx:1.36x  0x7a2363a401b2340c7941dd2eeff0196a5078d2e6
+  slot_1 plus_1_block  0x0851…5d3a          n=49   Win≥2x:  22% Win≥5x:   4% AvgPx:1.79x  0x085111103c78e708199e1779789eefe9529d5d3a
+  slot_1 plus_2_block  0x0851…5d3a          n=49   Win≥2x:  20% Win≥5x:   4% AvgPx:1.77x  0x085111103c78e708199e1779789eefe9529d5d3a
+  slot_1 plus_2s  0x0851…5d3a          n=49   Win≥2x:  22% Win≥5x:   4% AvgPx:1.79x  0x085111103c78e708199e1779789eefe9529d5d3a
+  slot_2 plus_1_block  0xbf00…4903          n=43   Win≥2x:  12% Win≥5x:   2% AvgPx:2.76x  0xbf004bff64725914ee36d03b87d6965b0ced4903
+  slot_2 plus_2_block  0xbf00…4903          n=43   Win≥2x:  12% Win≥5x:   2% AvgPx:2.54x  0xbf004bff64725914ee36d03b87d6965b0ced4903
+  slot_2 plus_2s  0xbf00…4903          n=43   Win≥2x:  12% Win≥5x:   2% AvgPx:2.75x  0xbf004bff64725914ee36d03b87d6965b0ced4903
+  slot_2 plus_1_block  0x2ce9…3373          n=23   Win≥2x:  17% Win≥5x:   9% AvgPx:1.77x  0x2ce9d43d1cba6ae31d7f07bfe0098dfa2d833373
+  slot_2 plus_2_block  0x2ce9…3373          n=23   Win≥2x:  22% Win≥5x:   9% AvgPx:1.93x  0x2ce9d43d1cba6ae31d7f07bfe0098dfa2d833373
+  slot_2 plus_2s  0x2ce9…3373          n=23   Win≥2x:  17% Win≥5x:   9% AvgPx:1.77x  0x2ce9d43d1cba6ae31d7f07bfe0098dfa2d833373
+  slot_3 plus_1_block  0xbf00…4903          n=23   Win≥2x:   9% Win≥5x:   4% AvgPx:1.91x  0xbf004bff64725914ee36d03b87d6965b0ced4903
+  slot_3 plus_2_block  0xbf00…4903          n=23   Win≥2x:  13% Win≥5x:   4% AvgPx:1.82x  0xbf004bff64725914ee36d03b87d6965b0ced4903
+  slot_3 plus_2s  0xbf00…4903          n=23   Win≥2x:   9% Win≥5x:   4% AvgPx:1.91x  0xbf004bff64725914ee36d03b87d6965b0ced4903
+  slot_3 plus_1_block  0xfe63…87b9          n=18   Win≥2x:  33% Win≥5x:  11% AvgPx:2.28x  0xfe631cd3c9f7e879f936515265302677805f87b9
+  slot_3 plus_2_block  0xfe63…87b9          n=18   Win≥2x:  39% Win≥5x:  11% AvgPx:2.24x  0xfe631cd3c9f7e879f936515265302677805f87b9
+  slot_3 plus_2s  0xfe63…87b9          n=18   Win≥2x:  33% Win≥5x:  11% AvgPx:2.28x  0xfe631cd3c9f7e879f936515265302677805f87b9
+  slot_2 plus_1_block  0x0851…5d3a          n=17   Win≥2x:  24% Win≥5x:  18% AvgPx:2.61x  0x085111103c78e708199e1779789eefe9529d5d3a
+  slot_2 plus_2_block  0x0851…5d3a          n=17   Win≥2x:  29% Win≥5x:  18% AvgPx:2.68x  0x085111103c78e708199e1779789eefe9529d5d3a
+  slot_2 plus_2s  0x0851…5d3a          n=17   Win≥2x:  24% Win≥5x:  18% AvgPx:2.61x  0x085111103c78e708199e1779789eefe9529d5d3a
+  slot_3 plus_1_block  0x7a23…d2e6          n=14   Win≥2x:  36% Win≥5x:  14% AvgPx:2.47x  0x7a2363a401b2340c7941dd2eeff0196a5078d2e6
+  slot_3 plus_2_block  0x7a23…d2e6          n=14   Win≥2x:  50% Win≥5x:  14% AvgPx:2.42x  0x7a2363a401b2340c7941dd2eeff0196a5078d2e6
+  slot_3 plus_2s  0x7a23…d2e6          n=14   Win≥2x:  36% Win≥5x:  14% AvgPx:2.46x  0x7a2363a401b2340c7941dd2eeff0196a5078d2e6
+  slot_3 plus_1_block  0x0851…5d3a          n=12   Win≥2x:  17% Win≥5x:   0% AvgPx:1.38x  0x085111103c78e708199e1779789eefe9529d5d3a
+  slot_3 plus_2_block  0x0851…5d3a          n=12   Win≥2x:   8% Win≥5x:   0% AvgPx:1.41x  0x085111103c78e708199e1779789eefe9529d5d3a
+  slot_3 plus_2s  0x0851…5d3a          n=12   Win≥2x:  17% Win≥5x:   0% AvgPx:1.38x  0x085111103c78e708199e1779789eefe9529d5d3a
+  slot_1 plus_1_block  0x077b…988b          n=8    Win≥2x:  12% Win≥5x:  12% AvgPx:1.79x  0x077b9981bc8a2ca417cea41861111da63266988b
+  slot_1 plus_2_block  0x077b…988b          n=8    Win≥2x:  12% Win≥5x:   0% AvgPx:1.72x  0x077b9981bc8a2ca417cea41861111da63266988b
+  slot_1 plus_2s  0x077b…988b          n=8    Win≥2x:  12% Win≥5x:  12% AvgPx:1.79x  0x077b9981bc8a2ca417cea41861111da63266988b
+  slot_3 plus_1_block  0x2ce9…3373          n=3    Win≥2x:   0% Win≥5x:   0% AvgPx:1.37x  0x2ce9d43d1cba6ae31d7f07bfe0098dfa2d833373
+  slot_3 plus_2_block  0x2ce9…3373          n=3    Win≥2x:   0% Win≥5x:   0% AvgPx:1.40x  0x2ce9d43d1cba6ae31d7f07bfe0098dfa2d833373
+  slot_3 plus_2s  0x2ce9…3373          n=3    Win≥2x:   0% Win≥5x:   0% AvgPx:1.37x  0x2ce9d43d1cba6ae31d7f07bfe0098dfa2d833373
+
+================================================================================
+

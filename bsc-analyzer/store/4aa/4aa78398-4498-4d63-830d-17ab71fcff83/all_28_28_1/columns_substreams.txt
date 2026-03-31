@@ -1,0 +1,56 @@
+columns substreams version: 1
+22 columns:
+3 substreams for column `wallet_address`:
+	wallet_address.dict_prefix
+	wallet_address.dict
+	wallet_address
+3 substreams for column `token_address`:
+	token_address.dict_prefix
+	token_address.dict
+	token_address
+2 substreams for column `token_symbol`:
+	token_symbol.size
+	token_symbol
+2 substreams for column `token_name`:
+	token_name.size
+	token_name
+3 substreams for column `chain`:
+	chain.dict_prefix
+	chain.dict
+	chain
+1 substreams for column `buy_count`:
+	buy_count
+1 substreams for column `sell_count`:
+	sell_count
+1 substreams for column `total_buy_usd`:
+	total_buy_usd
+1 substreams for column `total_sell_usd`:
+	total_sell_usd
+1 substreams for column `total_buy_tokens`:
+	total_buy_tokens
+1 substreams for column `total_sell_tokens`:
+	total_sell_tokens
+1 substreams for column `avg_buy_price`:
+	avg_buy_price
+1 substreams for column `avg_sell_price`:
+	avg_sell_price
+1 substreams for column `first_buy_ts`:
+	first_buy_ts
+1 substreams for column `last_buy_ts`:
+	last_buy_ts
+1 substreams for column `first_sell_ts`:
+	first_sell_ts
+1 substreams for column `last_sell_ts`:
+	last_sell_ts
+1 substreams for column `hold_duration_sec`:
+	hold_duration_sec
+1 substreams for column `realized_pnl_usd`:
+	realized_pnl_usd
+1 substreams for column `realized_pnl_pct`:
+	realized_pnl_pct
+3 substreams for column `exit_type`:
+	exit_type.dict_prefix
+	exit_type.dict
+	exit_type
+1 substreams for column `updated_at`:
+	updated_at

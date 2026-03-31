@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#111;color:#f0f0f0;font-family:system-ui,sans-serif;font-size:14px;padding:16px}
+h1{color:#60b4ff;font-size:19px;font-weight:800;margin-bottom:2px}
+.sub{color:#aaa;font-size:12px;margin-bottom:14px}
+.sh{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#666;margin-bottom:8px;padding-bottom:5px;border-bottom:2px solid #2a2a2a}
+.row{display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.card{background:#1c1c1c;border:1px solid #3a3a3a;border-radius:8px;padding:14px;flex:1;min-width:260px}
+
+/* KOL grid */
+.kol-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.kol-card{border:2px solid;border-radius:8px;padding:12px;text-align:center;position:relative}
+.kol-label{font-size:28px;font-weight:900;line-height:1}
+.kol-name{font-size:10px;color:#888;margin:2px 0 6px;font-family:monospace;word-break:break-all}
+.kol-tier{font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;display:inline-block;margin-bottom:6px}
+.kol-stats{font-size:11px;line-height:1.8}
+.kol-stat-row{display:flex;justify-content:space-between;padding:1px 0;border-bottom:1px solid #222}
+.kol-stat-row:last-child{border-bottom:none}
+.kol-lbl{color:#888}
+.kol-val{font-weight:700}
+.rare-badge{position:absolute;top:6px;right:6px;font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px}
+
+/* role bars */
+.role-bar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin:4px 0}
+
+/* table */
+table{width:100%;border-collapse:collapse}
+th{background:#222;color:#bbb;font-size:11px;font-weight:600;text-align:left;padding:6px 8px;border-bottom:2px solid #444}
+td{padding:6px 8px;border-bottom:1px solid #252525;font-size:12px;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#222}
+.pill{display:inline-block;padding:1px 6px;border-radius:8px;font-size:10px;font-weight:700;margin:1px}
+.pg{background:#0d2a10;color:#44dd55}
+.py{background:#2a2000;color:#ffcc44}
+.pr{background:#2a0808;color:#ff6666}
+.pb{background:#0d1a30;color:#60b4ff}
+.po{background:#2a1400;color:#ff9933}
+.pp{background:#1e0d30;color:#cc88ff}
+
+/* bar chart */
+.bar-row{display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px solid #1e1e1e}
+.bar-row:last-child{border-bottom:none}
+.blbl{width:100px;font-size:11px;font-weight:600;color:#ccc;flex-shrink:0}
+.btrk{flex:1;height:14px;background:#222;border-radius:3px;overflow:hidden}
+.bfil{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:4px;font-size:9px;font-weight:700;color:#111;white-space:nowrap}
+.bval{width:60px;font-size:11px;font-weight:700;flex-shrink:0;text-align:right}
+
+/* insight */
+.ins{border-left:4px solid;padding:8px 10px;border-radius:0 5px 5px 0;margin-bottom:6px;font-size:13px;line-height:1.5}
+.ins b{font-weight:700}
+.ig{border-color:#44dd55;background:#0a1a0a}
+.iw{border-color:#ffcc44;background:#1a1500}
+.ib{border-color:#60b4ff;background:#0a1020}
+.io{border-color:#ff9933;background:#1a1000}
+.ip{border-color:#cc88ff;background:#150d20}
+</style>
+</head>
+<body>
+
+<h1>🧠 KOL Intelligence Map — All Wallets Profiled</h1>
+<p class="sub">255 trades · full wallet role analysis · F/H/I rare KOL deep dive · trio synergy rankings</p>
+
+<!-- CORE 5 KOL CARDS -->
+<div class="sh" style="margin-bottom:10px">Core Group (A–E) — 255 trades coverage</div>
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:12px">
+
+  <!-- B -->
+  <div class="kol-card" style="border-color:#ff9933;background:#160e00">
+    <div class="kol-label" style="color:#ff9933">B</div>
+    <div class="kol-name">0xfe631cd3…87b9</div>
+    <div class="kol-tier" style="background:#2a1400;color:#ff9933">🔥 MOST ACTIVE</div>
+    <div class="kol-stats">
+      <div class="kol-stat-row"><span class="kol-lbl">Appearances</span><span class="kol-val" style="color:#ff9933">195 trades</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As 1st KOL</span><span class="kol-val">91</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As 2nd KOL</span><span class="kol-val">74</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As later KOL</span><span class="kol-val">30</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">Win% (any pos)</span><span class="kol-val" style="color:#44dd55">79%</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">≥2x hit rate</span><span class="kol-val" style="color:#ffcc44">20%</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">Avg peak_x</span><span class="kol-val">2.62x</span></div>
+    </div>
+    <div class="role-bar" style="margin-top:6px">
+      <div style="width:47%;background:#ff9933"></div>
+      <div style="width:38%;background:#ffcc44"></div>
+      <div style="width:15%;background:#886600"></div>
+    </div>
+    <div style="font-size:9px;color:#666;margin-top:2px">1st · 2nd · later</div>
+  </div>
+
+  <!-- A -->
+  <div class="kol-card" style="border-color:#cc88ff;background:#0e0814">
+    <div class="kol-label" style="color:#cc88ff">A</div>
+    <div class="kol-name">0xbf004bff…4903</div>
+    <div class="kol-tier" style="background:#1e0d30;color:#cc88ff">⭐ BEST CONFIRMER</div>
+    <div class="kol-stats">
+      <div class="kol-stat-row"><span class="kol-lbl">Appearances</span><span class="kol-val" style="color:#cc88ff">136 trades</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As 1st KOL</span><span class="kol-val">33</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As 2nd KOL</span><span class="kol-val">54</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As later KOL</span><span class="kol-val">49</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">Win% (any pos)</span><span class="kol-val" style="color:#44dd55">82%</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">≥2x hit rate</span><span class="kol-val" style="color:#ffcc44">24%</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">Avg peak_x</span><span class="kol-val" style="color:#cc88ff">3.01x</span></div>
+    </div>
+    <div class="role-bar" style="margin-top:6px">
+      <div style="width:24%;background:#cc88ff"></div>
+      <div style="width:40%;background:#9966cc"></div>
+      <div style="width:36%;background:#553366"></div>
+    </div>
+    <div style="font-size:9px;color:#666;margin-top:2px">1st · 2nd · later</div>
+  </div>
+
+  <!-- C -->
+  <div class="kol-card" style="border-color:#44dd55;background:#0a1408">
+    <div class="kol-label" style="color:#44dd55">C</div>
+    <div class="kol-name">0x7a2363a4…d2e6</div>
+    <div class="kol-tier" style="background:#0d2a10;color:#44dd55">🎯 CONSISTENT</div>
+    <div class="kol-stats">
+      <div class="kol-stat-row"><span class="kol-lbl">Appearances</span><span class="kol-val" style="color:#44dd55">154 trades</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As 1st KOL</span><span class="kol-val">53</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As 2nd KOL</span><span class="kol-val">72</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As later KOL</span><span class="kol-val">29</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">Win% (any pos)</span><span class="kol-val" style="color:#44dd55">82%</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">≥2x hit rate</span><span class="kol-val" style="color:#ffcc44">19%</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">Avg peak_x</span><span class="kol-val">2.50x</span></div>
+    </div>
+    <div class="role-bar" style="margin-top:6px">
+      <div style="width:34%;background:#44dd55"></div>
+      <div style="width:47%;background:#22aa33"></div>
+      <div style="width:19%;background:#115522"></div>
+    </div>
+    <div style="font-size:9px;color:#666;margin-top:2px">1st · 2nd · later</div>
+  </div>
+
+  <!-- D -->
+  <div class="kol-card" style="border-color:#60b4ff;background:#080d18">
+    <div class="kol-label" style="color:#60b4ff">D</div>
+    <div class="kol-name">0x2ce9d43d…3373</div>
+    <div class="kol-tier" style="background:#0d1a30;color:#60b4ff">🔮 INITIATOR</div>
+    <div class="kol-stats">
+      <div class="kol-stat-row"><span class="kol-lbl">Appearances</span><span class="kol-val" style="color:#60b4ff">100 trades</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As 1st KOL</span><span class="kol-val">59</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As 2nd KOL</span><span class="kol-val">30</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As later KOL</span><span class="kol-val">11</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">Win% (any pos)</span><span class="kol-val" style="color:#ffcc44">76%</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">≥2x hit rate</span><span class="kol-val" style="color:#ffcc44">22%</span></div>
+      <div class="kol-stat-row"><span class="kol-val">2.65x</span><span class="kol-lbl">avg peak_x</span></div>
+    </div>
+    <div class="role-bar" style="margin-top:6px">
+      <div style="width:59%;background:#60b4ff"></div>
+      <div style="width:30%;background:#3366aa"></div>
+      <div style="width:11%;background:#1a3355"></div>
+    </div>
+    <div style="font-size:9px;color:#666;margin-top:2px">1st · 2nd · later</div>
+  </div>
+
+  <!-- E -->
+  <div class="kol-card" style="border-color:#ff66cc;background:#180814">
+    <div class="kol-label" style="color:#ff66cc">E</div>
+    <div class="kol-name">0x085111103c…38a8</div>
+    <div class="kol-tier" style="background:#2a0820;color:#ff66cc">🚀 ELITE LATER</div>
+    <div class="kol-stats">
+      <div class="kol-stat-row"><span class="kol-lbl">Appearances</span><span class="kol-val" style="color:#ff66cc">73 trades</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As 1st KOL</span><span class="kol-val">17</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As 2nd KOL</span><span class="kol-val">23</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">As later KOL</span><span class="kol-val" style="color:#ff66cc">33 ← most</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">Win% (any pos)</span><span class="kol-val" style="color:#44dd55">89%</span></div>
+      <div class="kol-stat-row"><span class="kol-lbl">≥2x hit rate</span><span class="kol-val" style="color:#ff66cc">37%</span></div>
+      <div class="kol-stat-row"><span class="kol-val" style="color:#ff66cc">4.01x</span><span class="kol-lbl">avg peak_x</span></div>
+    </div>
+    <div class="role-bar" style="margin-top:6px">
+      <div style="width:23%;background:#ff66cc"></div>
+      <div style="width:32%;background:#aa3388"></div>
+      <div style="width:45%;background:#661144"></div>
+    </div>
+    <div style="font-size:9px;color:#666;margin-top:2px">1st · 2nd · <b style="color:#ff66cc">later</b></div>
+  </div>
+</div>
+
+<!-- RARE KOLs -->
+<div class="sh" style="margin-bottom:10px">Rare KOLs (F, H, I) — Outside the Core Group</div>
+<div class="row">
+  <div class="card" style="flex:1.5">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px">
+
+      <div class="kol-card" style="border-color:#ffcc44;background:#181200">
+        <div class="rare-badge" style="background:#2a1a00;color:#ffcc44">RARE</div>
+        <div class="kol-label" style="color:#ffcc44">F</div>
+        <div class="kol-name">0x176e6378…37c8</div>
+        <div class="kol-tier" style="background:#2a1a00;color:#ffcc44">3 appearances</div>
+        <div class="kol-stats" style="font-size:10px">
+          <div class="kol-stat-row"><span class="kol-lbl">Positions</span><span class="kol-val">1st(1) later(2)</span></div>
+          <div class="kol-stat-row"><span class="kol-lbl">Win rate</span><span class="kol-val">67%</span></div>
+          <div class="kol-stat-row"><span class="kol-lbl">≥2x</span><span class="kol-val">1/3 = 33%</span></div>
+          <div class="kol-stat-row"><span class="kol-lbl">Avg peak_x</span><span class="kol-val">1.50x</span></div>
+          <div class="kol-stat-row"><span class="kol-lbl">Only appears in</span><span class="kol-val">kc≥3 trades</span></div>
+        </div>
+        <div style="margin-top:6px;font-size:10px;color:#886600;line-height:1.4">
+          Always joins as later KOL.<br>Appears in high-kc group trades.<br>
+          <span style="color:#ffcc44">Signal: confirms group play</span>
+        </div>
+      </div>
+
+      <div class="kol-card" style="border-color:#44dd55;background:#081408">
+        <div class="rare-badge" style="background:#0d2a10;color:#44dd55">RARE</div>
+        <div class="kol-label" style="color:#44dd55">H</div>
+        <div class="kol-name">0xeb89055e…4f31d</div>
+        <div class="kol-tier" style="background:#0d2a10;color:#44dd55">4 appearances</div>
+        <div class="kol-stats" style="font-size:10px">
+          <div class="kol-stat-row"><span class="kol-lbl">Positions</span><span class="kol-val">2nd(1) later(3)</span></div>
+          <div class="kol-stat-row"><span class="kol-lbl">Win rate</span><span class="kol-val" style="color:#44dd55">100%</span></div>
+          <div class="kol-stat-row"><span class="kol-lbl">≥2x</span><span class="kol-val" style="color:#44dd55">3/4 = 75%</span></div>
+          <div class="kol-stat-row"><span class="kol-lbl">Avg peak_x</span><span class="kol-val" style="color:#44dd55">3.53x</span></div>
+          <div class="kol-stat-row"><span class="kol-lbl">Avg kc when H appears</span><span class="kol-val">4.5</span></div>
+        </div>
+        <div style="margin-top:6px;font-size:10px;color:#226622;line-height:1.4">
+          <span style="color:#44dd55">🔥 Best rare KOL signal.</span><br>
+          100% win, 75% hit 2x.<br>
+          Only joins very high-kc tokens.<br>
+          <span style="color:#44dd55">Treat as strong buy signal</span>
+        </div>
+      </div>
+
+      <div class="kol-card" style="border-color:#60b4ff;background:#080d18">
+        <div class="rare-badge" style="background:#0d1a30;color:#60b4ff">RARE</div>
+        <div class="kol-label" style="color:#60b4ff">I</div>
+        <div class="kol-name">0x077b9981…988b</div>
+        <div class="kol-tier" style="background:#0d1a30;color:#60b4ff">3 appearances</div>
+        <div class="kol-stats" style="font-size:10px">
+          <div class="kol-stat-row"><span class="kol-lbl">Positions</span><span class="kol-val">1st(1) 2nd(1) later(1)</span></div>
+          <div class="kol-stat-row"><span class="kol-lbl">Win rate</span><span class="kol-val" style="color:#44dd55">100%</span></div>
+          <div class="kol-stat-row"><span class="kol-lbl">≥2x</span><span class="kol-val" style="color:#60b4ff">2/3 = 67%</span></div>
+          <div class="kol-stat-row"><span class="kol-lbl">Avg peak_x</span><span class="kol-val">2.72x</span></div>
+          <div class="kol-stat-row"><span class="kol-lbl">As 1st buyer</span><span class="kol-val">row 843 kc=6</span></div>
+        </div>
+        <div style="margin-top:6px;font-size:10px;color:#336699;line-height:1.4">
+          Once initiated a kc=6 token.<br>
+          100% win rate, decent ≥2x.<br>
+          <span style="color:#60b4ff">Signal: good when it appears</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ins ig" style="margin-bottom:6px">✅ <b>Key finding:</b> Trades where F, H, or I appear have <b>67% ≥2x hit rate vs 15% without them</b> — 4.5× better. They only appear in genuinely hot tokens (avg kc=4.4). Any unrecognised wallet buying = wildcard upgrade signal.</div>
+    <div class="ins ib">📊 <b>G doesn't exist in dataset.</b> Either it's a wallet not in your current tracking list, or it hasn't traded yet. Add it to watchlist for future data capture.</div>
+  </div>
+
+  <!-- RARE KOL INDIVIDUAL TRADES -->
+  <div class="card" style="flex:1">
+    <div class="sh">F / H / I — Every Individual Trade</div>
+    <table>
+      <tr><th>KOL</th><th>Row</th><th>Position</th><th>kc</th><th>Entry $</th><th>Peak_x</th><th>Others in trade</th></tr>
+      <tr><td style="color:#ffcc44;font-weight:700">F</td><td>451</td><td><span class="pill po">1st</span></td><td>4</td><td>$58,800</td><td style="color:#aaa">1.00x</td><td>B, A, C</td></tr>
+      <tr><td style="color:#ffcc44;font-weight:700">F</td><td>281</td><td><span class="pill py">3rd</span></td><td>3</td><td>$42,094</td><td style="color:#44dd55">2.23x</td><td>B, A</td></tr>
+      <tr><td style="color:#ffcc44;font-weight:700">F</td><td>176</td><td><span class="pill py">5th</span></td><td>6</td><td>$37,051</td><td style="color:#aaa">1.27x</td><td>A,C,D,B,H</td></tr>
+      <tr style="background:#0a1408"><td style="color:#44dd55;font-weight:700">H</td><td>864</td><td><span class="pill pg">2nd</span></td><td>3</td><td>$55,507</td><td style="color:#44dd55">2.44x ✓</td><td>C, E</td></tr>
+      <tr style="background:#0a1408"><td style="color:#44dd55;font-weight:700">H</td><td>4</td><td><span class="pill py">4th</span></td><td>5</td><td>$29,971</td><td style="color:#ff9933">7.42x ✓</td><td>A,D,B,C</td></tr>
+      <tr style="background:#0a1408"><td style="color:#44dd55;font-weight:700">H</td><td>271</td><td><span class="pill py">6th</span></td><td>6</td><td>$53,176</td><td style="color:#44dd55">3.01x ✓</td><td>A,E,C,D,B</td></tr>
+      <tr style="background:#0a1408"><td style="color:#44dd55;font-weight:700">H</td><td>176</td><td><span class="pill py">6th</span></td><td>6</td><td>$37,051</td><td style="color:#aaa">1.27x</td><td>A,C,D,B,F</td></tr>
+      <tr style="background:#080d18"><td style="color:#60b4ff;font-weight:700">I</td><td>843</td><td><span class="pill po">1st</span></td><td>6</td><td>$10,893</td><td style="color:#44dd55">2.67x ✓</td><td>D,C,B,E,A</td></tr>
+      <tr style="background:#080d18"><td style="color:#60b4ff;font-weight:700">I</td><td>237</td><td><span class="pill pg">2nd</span></td><td>3</td><td>$45,751</td><td style="color:#ff9933">4.31x ✓</td><td>B, C</td></tr>
+      <tr style="background:#080d18"><td style="color:#60b4ff;font-weight:700">I</td><td>505</td><td><span class="pill py">3rd</span></td><td>4</td><td>$23,122</td><td style="color:#aaa">1.19x</td><td>D, C, E</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- POSITION ANALYSIS + TRIO COMBOS -->
+<div class="row">
+  <div class="card">
+    <div class="sh">📍 Position-Specific Signal Strength</div>
+    <div style="margin-bottom:10px">
+      <div style="font-size:11px;color:#888;margin-bottom:6px">As 2nd KOL (entry trigger) — TP1 (2x) hit rate</div>
+      <div class="bar-row"><div class="blbl" style="color:#ff66cc">E triggers</div><div class="btrk"><div class="bfil" style="width:26%;background:#aa2288">26%</div></div><div class="bval" style="color:#ff66cc">avg 2.37x · n=23</div></div>
+      <div class="bar-row"><div class="blbl" style="color:#ff9933">B triggers</div><div class="btrk"><div class="bfil" style="width:23%;background:#aa5500">23%</div></div><div class="bval" style="color:#ff9933">avg 2.25x · n=74</div></div>
+      <div class="bar-row"><div class="blbl" style="color:#60b4ff">D triggers</div><div class="btrk"><div class="bfil" style="width:17%;background:#224488">17%</div></div><div class="bval" style="color:#60b4ff">avg 1.87x · n=30</div></div>
+      <div class="bar-row"><div class="blbl" style="color:#cc88ff">A triggers</div><div class="btrk"><div class="bfil" style="width:13%;background:#663399">13%</div></div><div class="bval" style="color:#cc88ff">avg 3.52x · n=54</div></div>
+      <div class="bar-row"><div class="blbl" style="color:#44dd55">C triggers</div><div class="btrk"><div class="bfil" style="width:8%;background:#226622">8%</div></div><div class="bval" style="color:#44dd55">avg 1.71x · n=72</div></div>
+    </div>
+    <div style="font-size:11px;color:#888;margin-bottom:6px;margin-top:10px">As 3rd KOL joining — what it signals for the trade</div>
+    <div class="bar-row"><div class="blbl" style="color:#ff66cc">E joins 3rd</div><div class="btrk"><div class="bfil" style="width:47%;background:#aa2288">47%</div></div><div class="bval" style="color:#ff66cc">avg 7.73x · n=15 🔥</div></div>
+    <div class="bar-row"><div class="blbl" style="color:#44dd55">C joins 3rd</div><div class="btrk"><div class="bfil" style="width:46%;background:#226622">46%</div></div><div class="bval" style="color:#44dd55">avg 5.17x · n=24</div></div>
+    <div class="bar-row"><div class="blbl" style="color:#ff9933">B joins 3rd</div><div class="btrk"><div class="bfil" style="width:32%;background:#aa5500">32%</div></div><div class="bval" style="color:#ff9933">avg 2.60x · n=25</div></div>
+    <div class="bar-row"><div class="blbl" style="color:#cc88ff">A joins 3rd</div><div class="btrk"><div class="bfil" style="width:28%;background:#663399">28%</div></div><div class="bval" style="color:#cc88ff">avg 2.25x · n=32</div></div>
+    <div style="margin-top:8px;padding:8px;background:#0a1a0a;border-radius:5px;font-size:12px;color:#66cc66">
+      💡 <b>E joining as 3rd KOL is your strongest upgrade signal</b> — 7.73x avg, 47% hit 2x. When E appears on a token you're already holding, that's a Mode 2→3 upgrade trigger.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sh">🔀 3-KOL Trio Combos — Top Performers (unordered)</div>
+    <table>
+      <tr><th>Trio</th><th>n</th><th>Avg_x</th><th>Med_x</th><th>≥2x</th></tr>
+      <tr style="background:#0d1a0d"><td><span class="pill pg">A</span><span class="pill po">B</span><span class="pill" style="background:#1e0830;color:#ff66cc">E</span></td><td>10</td><td style="color:#ff9933;font-weight:700">8.47x</td><td>1.87x</td><td style="color:#44dd55">40%</td></tr>
+      <tr style="background:#0d1a0d"><td><span class="pill po">B</span><span class="pill pg">C</span><span class="pill" style="background:#1e0830;color:#ff66cc">E</span></td><td>10</td><td style="color:#ff9933;font-weight:700">5.60x</td><td style="color:#44dd55">2.81x</td><td style="color:#44dd55">70% 🔥</td></tr>
+      <tr><td><span class="pill pg">A</span><span class="pill po">B</span><span class="pill pb">C</span></td><td>21</td><td style="color:#ffcc44">4.07x</td><td>1.26x</td><td>24%</td></tr>
+      <tr><td><span class="pill po">B</span><span class="pill pb">C</span><span class="pill pb">D</span></td><td>23</td><td style="color:#ffcc44">3.65x</td><td style="color:#ffcc44">1.74x</td><td>30%</td></tr>
+      <tr><td><span class="pill pg">A</span><span class="pill po">B</span><span class="pill pb">D</span></td><td>12</td><td>3.07x</td><td>1.98x</td><td>42%</td></tr>
+      <tr><td><span class="pill pg">A</span><span class="pill pb">C</span><span class="pill" style="background:#1e0830;color:#ff66cc">E</span></td><td>3</td><td>3.84x</td><td>3.01x</td><td>67%</td></tr>
+      <tr style="background:#0a1808"><td><span class="pill pb">C</span><span class="pill" style="background:#1e0830;color:#ff66cc">E</span><span class="pill pg" style="background:#0d2a10;color:#44dd55">H</span></td><td>1</td><td>2.44x</td><td>—</td><td><span class="pill pg">100%</span></td></tr>
+      <tr style="background:#0a1808"><td><span class="pill po">B</span><span class="pill py">I</span><span class="pill pb">C</span></td><td>1</td><td>4.31x</td><td>—</td><td><span class="pill pg">100%</span></td></tr>
+    </table>
+    <div class="ins ig" style="margin-top:10px">✅ <b>A+B+E trio (n=10): 8.47x avg.</b> When all three appear on the same token, you are in the highest-quality signal in the entire dataset.</div>
+    <div class="ins ip" style="margin-top:6px">🔮 <b>B+C+E trio (n=10): 70% hit 2x, med 2.81x.</b> The most <i>reliable</i> trio — not just high avg, but high median. Most trades actually move.</div>
+  </div>
+</div>
+
+<!-- KEY RULES FOR LUMINA -->
+<div class="card">
+  <div class="sh">⚙️ Lumina Implementation Rules for Rare KOLs</div>
+  <div class="row" style="gap:10px;margin-bottom:0">
+    <div style="flex:1">
+      <div class="ins ig">✅ <b>H appearing = immediate Mode 3 upgrade.</b> 100% win rate, 75% hit 2x across 4 trades. When H buys any token you're tracking, size up regardless of current kc.</div>
+      <div class="ins ib">📊 <b>I appearing = positive but not as strong as H.</b> 100% win rate but only 2/3 hit 2x. Treat as a kc upgrade confirmation, not a size-up trigger on its own.</div>
+      <div class="ins iw">⚠️ <b>F is noisy.</b> 67% win, only 33% hit 2x. F mostly appears in very high-kc tokens (it's the kc itself that matters, not F specifically). Don't assign F special weight.</div>
+    </div>
+    <div style="flex:1">
+      <div class="ins io">🔥 <b>E joining as 3rd KOL is your best "add to position" signal.</b> When E is NOT the initial trigger but appears later, avg outcome is 7.73x. This is the clearest Mode 1→2 upgrade event.</div>
+      <div class="ins ip">🔮 <b>G is absent.</b> Either G's wallet isn't in your monitoring list yet, or it has never bought a token in this dataset. Add the address to Lumina's watchlist now and monitor for first appearance.</div>
+      <div class="ins ig">✅ <b>Any unknown wallet buying = wildcard kc++.</b> Don't require a named KOL to count. If a wallet not in A–I makes a buy pattern similar to your KOLs (same size, same timing), it still upgrades the signal. Build a wildcard counter in Lumina.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -26,6 +26,11 @@ build/
 .DS_Store
 Thumbs.db
 
+*.csv
+*.jsonl
+*.bin
+*.txt
+
 # Logs
 *.log
 npm-debug.log*
@@ -34,3 +39,6 @@ npm-debug.log*
 *.egg-info/
 *.egg
 .pytest_cache/
+
+# Local ClickHouse server binary (700MB+; exceeds GitHub 100MB limit)
+bsc-analyzer/clickhouse-bin

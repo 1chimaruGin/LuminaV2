@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#111;color:#f0f0f0;font-family:system-ui,sans-serif;font-size:14px;padding:16px;line-height:1.5}
+h1{color:#60b4ff;font-size:19px;font-weight:800;margin-bottom:2px}
+.sub{color:#aaa;font-size:12px;margin-bottom:14px}
+.sh{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#777;margin-bottom:8px;padding-bottom:5px;border-bottom:2px solid #2a2a2a}
+.row{display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.card{background:#1c1c1c;border:1px solid #3a3a3a;border-radius:8px;padding:14px;flex:1;min-width:260px}
+
+/* problem box */
+.problem{background:#1a0a0a;border:2px solid #aa2222;border-radius:8px;padding:14px;margin-bottom:12px}
+.problem h2{color:#ff5555;font-size:15px;font-weight:800;margin-bottom:8px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pbox{background:#250d0d;border:1px solid #662222;border-radius:6px;padding:10px;text-align:center}
+.pbox .big{font-size:28px;font-weight:900}
+.pbox .lbl{font-size:11px;color:#cc6666;margin-top:2px}
+.pbox .detail{font-size:12px;margin-top:6px;color:#ff8888}
+.sbox{background:#0d2010;border:1px solid #226622;border-radius:6px;padding:10px;text-align:center}
+.sbox .big{font-size:28px;font-weight:900}
+.sbox .lbl{font-size:11px;color:#66cc66;margin-top:2px}
+.sbox .detail{font-size:12px;margin-top:6px;color:#88ff88}
+
+/* 3-mode cards */
+.modes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+.mode{border:2px solid;border-radius:8px;padding:14px}
+.mode .mtitle{font-size:16px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.mode .mbadge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px}
+.mrow{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid #2a2a2a;font-size:13px}
+.mrow:last-child{border-bottom:none}
+.mlbl{color:#aaa}
+.mval{font-weight:700}
+.tp-list{margin-top:8px;padding:8px;background:#151515;border-radius:5px}
+.tp-item{font-size:12px;display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #222}
+.tp-item:last-child{border-bottom:none}
+.sl-item{font-size:12px;display:flex;justify-content:space-between;padding:3px 0;color:#ff6666}
+
+/* signals */
+.sigrow{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #222}
+.sigrow:last-child{border-bottom:none}
+.sigicon{font-size:20px;width:32px;flex-shrink:0;text-align:center}
+.sigtitle{font-weight:700;font-size:13px;margin-bottom:2px}
+.sigdetail{font-size:12px;color:#bbb;line-height:1.5}
+.sigval{font-size:11px;margin-top:4px}
+.pill{display:inline-block;padding:1px 6px;border-radius:8px;font-size:10px;font-weight:700;margin:1px}
+.pg{background:#0d2a10;color:#55ee77}
+.py{background:#2a2000;color:#ffcc44}
+.pr{background:#2a0d0d;color:#ff6666}
+.pb{background:#0d1a2e;color:#60b4ff}
+.po{background:#2a1800;color:#ff9933}
+
+/* comparison table */
+table{width:100%;border-collapse:collapse}
+th{background:#222;color:#bbb;font-size:11px;font-weight:600;text-align:left;padding:7px 8px;border-bottom:2px solid #444}
+td{padding:7px 8px;border-bottom:1px solid #252525;font-size:13px;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#222}
+
+/* bar */
+.bar-row{display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px solid #1e1e1e}
+.bar-row:last-child{border-bottom:none}
+.blbl{width:130px;font-size:11px;font-weight:600;color:#ccc;flex-shrink:0}
+.btrk{flex:1;height:16px;background:#222;border-radius:4px;overflow:hidden}
+.bfil{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:5px;font-size:10px;font-weight:700;color:#111;white-space:nowrap}
+.bval{width:80px;font-size:11px;font-weight:700;flex-shrink:0;text-align:right}
+
+/* ins */
+.ins{border-left:4px solid;padding:8px 10px;border-radius:0 5px 5px 0;margin-bottom:6px;font-size:13px;line-height:1.5}
+.ins b{font-weight:700}
+.ig{border-color:#44dd55;background:#0a1e0a}
+.iw{border-color:#ffcc44;background:#1e1a00}
+.ib{border-color:#60b4ff;background:#0a1020}
+.io{border-color:#ff9933;background:#1e1000}
+.ir{border-color:#ff5555;background:#1e0808}
+</style>
+</head>
+<body>
+
+<h1>🔬 Reliable Entry System — Signal-Based 3-Mode Framework</h1>
+<p class="sub">255 backtest trades · 0.03 BNB/trade · 0.001 BNB gas · BNB ≈ $600 · honest assessment, not optimistic</p>
+
+<!-- THE REAL PROBLEM -->
+<div class="problem">
+  <h2>⚠️ The Real Problem with the Old System</h2>
+  <div class="split">
+    <div class="pbox">
+      <div class="big" style="color:#ff5555">60%</div>
+      <div class="lbl">of your slot_2 entries</div>
+      <div class="detail"><b>kc=2 forever</b> — 154/255 trades<br>avg 1.27x · only 12% hit 2x<br>TP1 at 2x hit by 1 in 8 trades<br>This is your noise factory</div>
+    </div>
+    <div class="sbox">
+      <div class="big" style="color:#44dd55">40%</div>
+      <div class="lbl">of your slot_2 entries</div>
+      <div class="detail"><b>kc=3+ confirmed</b> — 101/255 trades<br>avg 4.05x · 39% hit 2x · 15% hit 5x<br>91% win rate · median 1.74x<br>This is where money actually is</div>
+    </div>
+  </div>
+  <div style="margin-top:10px;padding:8px 10px;background:#2a1010;border-radius:5px;font-size:13px">
+    🔑 <b style="color:#ff9933">Root cause:</b> at slot_2 entry you can't know if a 3rd KOL will join. The system was entering 255 trades blindly, of which 60% are fundamentally low-quality. The fix is not better TP levels — it's <b style="color:#44dd55">entering smaller at slot_2 and sizing up when kc confirms at 3 or 4.</b>
+  </div>
+</div>
+
+<!-- 3 MODES -->
+<div class="modes">
+  <!-- MODE 1 -->
+  <div class="mode" style="border-color:#555;background:#161616">
+    <div class="mtitle">
+      <span style="color:#aaa">Mode 1</span>
+      <span class="mbadge" style="background:#252525;color:#aaa">PROBE</span>
+    </div>
+    <div class="mrow"><span class="mlbl">Trigger</span><span class="mval" style="color:#aaa;font-size:12px">2nd KOL buy, good combo</span></div>
+    <div class="mrow"><span class="mlbl">Size</span><span class="mval">0.02 BNB <span style="color:#888;font-size:11px">(2/3 standard)</span></span></div>
+    <div class="mrow"><span class="mlbl">Win rate</span><span class="mval" style="color:#aaa">~79%</span></div>
+    <div class="mrow"><span class="mlbl">TP1 (1.5x) hit</span><span class="mval" style="color:#aaa">~29%</span></div>
+    <div class="mrow"><span class="mlbl">Purpose</span><span class="mval" style="color:#ffcc44;font-size:11px">Stay in position for upgrade</span></div>
+    <div class="tp-list">
+      <div class="tp-item"><span style="color:#aaa">TP1 1.5x</span><span>sell 40%</span></div>
+      <div class="tp-item"><span style="color:#aaa">TP2 3.0x</span><span>sell 60%</span></div>
+      <div class="sl-item"><span>SL 0.65x</span><span style="color:#ff6666">full exit −35%</span></div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#888;background:#1a1a1a;padding:6px;border-radius:4px">
+      Required filters:<br>
+      ✓ Combo ∈ {C→E, B→A, A→D, D→B, C→B}<br>
+      ✓ entry_mcap &lt; $30k<br>
+      ✓ dev_sell &lt; $1,500<br>
+      ✓ token age &lt; 500 blocks
+    </div>
+  </div>
+
+  <!-- MODE 2 -->
+  <div class="mode" style="border-color:#60b4ff;background:#0d1520">
+    <div class="mtitle">
+      <span style="color:#60b4ff">Mode 2</span>
+      <span class="mbadge" style="background:#0d2040;color:#60b4ff">CONFIRMED</span>
+    </div>
+    <div class="mrow"><span class="mlbl">Trigger</span><span class="mval" style="color:#60b4ff;font-size:12px">3rd KOL detected buying</span></div>
+    <div class="mrow"><span class="mlbl">Size</span><span class="mval">0.03 BNB <span style="color:#60b4ff;font-size:11px">(full)</span></span></div>
+    <div class="mrow"><span class="mlbl">Win rate</span><span class="mval" style="color:#60b4ff">~88%</span></div>
+    <div class="mrow"><span class="mlbl">TP1 (2x) hit</span><span class="mval" style="color:#60b4ff">~28%</span></div>
+    <div class="mrow"><span class="mlbl">Purpose</span><span class="mval" style="color:#60b4ff;font-size:11px">Core position, confirmed signal</span></div>
+    <div class="tp-list">
+      <div class="tp-item"><span style="color:#aaa">TP1 2.0x</span><span style="color:#60b4ff">sell 35%</span></div>
+      <div class="tp-item"><span style="color:#aaa">TP2 4.0x</span><span style="color:#60b4ff">sell 35%</span></div>
+      <div class="tp-item"><span style="color:#aaa">TP3 8.0x</span><span style="color:#60b4ff">sell 30%</span></div>
+      <div class="sl-item"><span>SL 0.65x</span><span style="color:#ff6666">full exit −35%</span></div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#6699cc;background:#0a1520;padding:6px;border-radius:4px">
+      Scenarios:<br>
+      A) You held Mode 1 → add 0.01 BNB to total 0.03<br>
+      B) Fresh entry → 0.03 BNB direct<br>
+      ✓ mcap still &lt; $50k at time of 3rd KOL<br>
+      ✓ dev_sell &lt; $3,000
+    </div>
+  </div>
+
+  <!-- MODE 3 -->
+  <div class="mode" style="border-color:#ff9933;background:#150e00">
+    <div class="mtitle">
+      <span style="color:#ff9933">Mode 3</span>
+      <span class="mbadge" style="background:#2a1800;color:#ff9933">STRONG</span>
+    </div>
+    <div class="mrow"><span class="mlbl">Trigger</span><span class="mval" style="color:#ff9933;font-size:12px">4th or 5th KOL detected</span></div>
+    <div class="mrow"><span class="mlbl">Size</span><span class="mval">0.04–0.05 BNB <span style="color:#ff9933;font-size:11px">⬆ size up</span></span></div>
+    <div class="mrow"><span class="mlbl">Win rate</span><span class="mval" style="color:#ff9933">~94%</span></div>
+    <div class="mrow"><span class="mlbl">TP1 (2x) hit</span><span class="mval" style="color:#ff9933">~45%</span></div>
+    <div class="mrow"><span class="mlbl">Purpose</span><span class="mval" style="color:#ff9933;font-size:11px">Max size, moonshot attempt</span></div>
+    <div class="tp-list">
+      <div class="tp-item"><span style="color:#aaa">TP1 2.0x</span><span style="color:#ff9933">sell 25%</span></div>
+      <div class="tp-item"><span style="color:#aaa">TP2 5.0x</span><span style="color:#ff9933">sell 25%</span></div>
+      <div class="tp-item"><span style="color:#aaa">TP3 10.0x</span><span style="color:#ff9933">sell 25%</span></div>
+      <div class="tp-item"><span style="color:#aaa">TP4 20.0x</span><span style="color:#ff9933">sell 25%</span></div>
+      <div class="sl-item"><span>SL 0.70x</span><span style="color:#ff6666">full exit −30%</span></div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#cc8833;background:#150e00;padding:6px;border-radius:4px">
+      No mcap filter needed — momentum<br>
+      fully confirmed at kc=4+<br>
+      kc=5 → 100% win rate in dataset<br>
+      kc=4 → 94% win rate in dataset
+    </div>
+  </div>
+</div>
+
+<!-- SIGNAL ANALYSIS + COMPARISON -->
+<div class="row">
+  <!-- SIGNALS -->
+  <div class="card" style="flex:1.2">
+    <div class="sh">📡 Observable Signals at Entry — What Each Tells You</div>
+
+    <div class="sigrow">
+      <div class="sigicon">👥</div>
+      <div>
+        <div class="sigtitle">KOL Count (live, grows over time)</div>
+        <div class="sigdetail">The single most powerful signal. Don't treat it as fixed at entry — <b>monitor it in real-time</b> and upgrade your position as each new KOL joins.</div>
+        <div class="sigval">
+          <span class="pill pr">kc=2 → 12% hit 2x</span>
+          <span class="pill py">kc=3 → 39% hit 2x</span>
+          <span class="pill pg">kc=4 → 45%+ hit 2x</span>
+          <span class="pill pg">kc=5 → 100% win</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sigrow">
+      <div class="sigicon">💰</div>
+      <div>
+        <div class="sigtitle">Dev Sell Amount (observable at entry)</div>
+        <div class="sigdetail">Not a simple good/bad signal. Dev sell = 0 just means the token is very new. Large dev dumps into early pump actually mean the token survived that pressure.</div>
+        <div class="sigval">
+          <span class="pill pg">dsell=0 → very fresh, unclear</span>
+          <span class="pill py">dsell &lt;$500 → small exit, neutral</span>
+          <span class="pill pr">dsell &gt;$5k → heavy dump, avoid</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sigrow">
+      <div class="sigicon">⏱️</div>
+      <div>
+        <div class="sigtitle">Token Age at Entry (age_blocks)</div>
+        <div class="sigdetail">Fresh tokens (&lt;100 blocks, &lt;5 min old) have 22% TP1 hit rate. Old tokens (&gt;1000 blocks) drop to 11%. Momentum decays fast in meme coins.</div>
+        <div class="sigval">
+          <span class="pill pg">≤50 blocks (&lt;2.5min) → best</span>
+          <span class="pill py">50–500 blocks → medium</span>
+          <span class="pill pr">&gt;1000 blocks (&gt;50min) → avoid</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sigrow">
+      <div class="sigicon">📊</div>
+      <div>
+        <div class="sigtitle">Entry Mcap (current price at your entry)</div>
+        <div class="sigdetail">Counter-intuitive: entry &gt;$25k shows higher avg_x because those tokens already have momentum. Entry &lt;$8k has low 2x hit rate — price bounces around too much early.</div>
+        <div class="sigval">
+          <span class="pill po">&lt;$8k → 12% hit 2x, avg 2.5x</span>
+          <span class="pill py">$8–15k → 12% hit 2x, avg 1.6x</span>
+          <span class="pill pg">$15–25k → 19% hit 2x, avg 2.9x</span>
+          <span class="pill pg">$25–40k → 20% hit 2x, avg 3.6x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sigrow">
+      <div class="sigicon">🏃</div>
+      <div>
+        <div class="sigtitle">KOL1→KOL2 Block Delta (buy speed)</div>
+        <div class="sigdetail">Not in dataset yet, but critical to build. Fast consecutive buys (&lt;5 blocks apart) suggest coordinated discovery — higher probability of more KOLs coming.</div>
+        <div class="sigval">
+          <span class="pill pg">&lt;5 blocks → likely coordinated → higher kc coming</span>
+          <span class="pill po">&gt;500 blocks → independent → less predictable</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sigrow">
+      <div class="sigicon">👤</div>
+      <div>
+        <div class="sigtitle" style="color:#ffcc44">Holder Count [NOT IN DATASET — BUILD THIS]</div>
+        <div class="sigdetail">Most important missing signal. Needs on-chain call at entry block. Expected impact: holder &gt;50 filter removes ~30% of weak trades, improves TP1 hit by +8–12pp.</div>
+        <div class="sigval">
+          <span class="pill pr">&lt;20 holders → whale trap, avoid</span>
+          <span class="pill py">20–50 → emerging momentum</span>
+          <span class="pill pg">&gt;50 holders → organic, trade it</span>
+          <span class="pill pg">&gt;100 → strong signal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON + TP HIT RATES -->
+  <div class="card" style="flex:0.8">
+    <div class="sh">📈 TP1 Hit Rate — By Mode & Filter</div>
+
+    <div class="bar-row"><div class="blbl">All 255 (baseline)</div><div class="btrk"><div class="bfil" style="width:17%;background:#555">17%</div></div><div class="bval" style="color:#888">hit 2x</div></div>
+    <div class="bar-row"><div class="blbl" style="color:#ff5555">kc=2 only (154)</div><div class="btrk"><div class="bfil" style="width:12%;background:#882222">12%</div></div><div class="bval" style="color:#ff5555">hit 2x</div></div>
+    <div class="bar-row"><div class="blbl" style="color:#60b4ff">kc=3+ (101)</div><div class="btrk"><div class="bfil" style="width:39%;background:#2244aa">39%</div></div><div class="bval" style="color:#60b4ff">hit 2x</div></div>
+    <div class="bar-row"><div class="blbl" style="color:#ff9933">kc=4+ (31)</div><div class="btrk"><div class="bfil" style="width:45%;background:#aa6600">45%</div></div><div class="bval" style="color:#ff9933">hit 2x</div></div>
+    <div class="bar-row"><div class="blbl" style="color:#ff66cc">kc=5+ (9)</div><div class="btrk"><div class="bfil" style="width:70%;background:#882266">~70%</div></div><div class="bval" style="color:#ff66cc">hit 2x</div></div>
+
+    <div style="margin:10px 0 6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#777">Win rate by kc</div>
+    <div class="bar-row"><div class="blbl" style="color:#ff5555">kc=2</div><div class="btrk"><div class="bfil" style="width:83%;background:#882222">83%</div></div><div class="bval" style="color:#ff5555">avg 1.27x</div></div>
+    <div class="bar-row"><div class="blbl" style="color:#ffcc44">kc=3</div><div class="btrk"><div class="bfil" style="width:86%;background:#886600">86%</div></div><div class="bval" style="color:#ffcc44">avg 3.34x</div></div>
+    <div class="bar-row"><div class="blbl" style="color:#60b4ff">kc=4</div><div class="btrk"><div class="bfil" style="width:94%;background:#224488">94%</div></div><div class="bval" style="color:#60b4ff">avg 4.05x</div></div>
+    <div class="bar-row"><div class="blbl" style="color:#ff9933">kc=5</div><div class="btrk"><div class="bfil" style="width:100%;background:#aa6600">100%</div></div><div class="bval" style="color:#ff9933">avg 8.33x</div></div>
+
+    <div class="sh" style="margin-top:14px">🔮 What We Need to Build in Lumina</div>
+    <table>
+      <tr><th>Signal</th><th>Source</th><th>Impact</th></tr>
+      <tr><td>Holder count</td><td>BSC RPC <code>eth_call</code></td><td><span class="pill pg">High</span></td></tr>
+      <tr><td>KOL buy speed (block delta)</td><td>kol_buys[] existing</td><td><span class="pill pg">High</span></td></tr>
+      <tr><td>KOL buy notional (BNB size)</td><td>kol_buys[] existing</td><td><span class="pill py">Medium</span></td></tr>
+      <tr><td>Dev sell rate ($/block)</td><td>existing dsell + age</td><td><span class="pill py">Medium</span></td></tr>
+      <tr><td>Contract: ownership renounced</td><td>BSC RPC <code>owner()</code></td><td><span class="pill py">Medium</span></td></tr>
+      <tr><td>Liquidity lock status</td><td>PancakeSwap LP check</td><td><span class="pill pb">Useful</span></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- KEY INSIGHTS -->
+<div class="card" style="margin-bottom:0">
+  <div class="sh">🔑 Architectural Takeaways</div>
+  <div class="row" style="gap:10px;margin-bottom:0">
+    <div style="flex:1">
+      <div class="ins ig">✅ <b>Treat kol_count as a live, growing signal.</b> Don't enter a fixed position at slot_2. Enter small (Mode 1), then add more BNB each time a new KOL joins (Mode 2 → Mode 3). Your position grows as conviction grows.</div>
+      <div class="ins iw">⚠️ <b>The 83% "never hit TP1" problem disappears at kc=3+.</b> At kc=3, 39% hit 2x. At kc=4, ~45%. The old system's flaw was treating all 255 trades equally — 60% of them were fundamentally unworthy of a full position.</div>
+      <div class="ins ib">📊 <b>Holder count is your most important missing filter.</b> It confirms that real buyers exist beyond the KOL group. A token with 5 KOL buys and only 8 holders = the KOLs ARE the market. A token with 5 KOLs and 80 holders = genuine organic interest.</div>
+    </div>
+    <div style="flex:1">
+      <div class="ins io">🔥 <b>Dev sell is nuanced, not binary.</b> Dev sell = 0 just means the token is fresh — not necessarily safer. What matters is the <i>rate</i>: dev_sell_usd / age_blocks. A dev who sold $3k over 10,000 blocks is less dangerous than one who sold $500 in 50 blocks.</div>
+      <div class="ins ig">✅ <b>Block delta between KOL1 and KOL2 is a free signal you already have.</b> Calculate it from <code>kol_buys[1].buy_block - kol_buys[0].buy_block</code>. Fast buys (&lt;5 blocks) = coordinated group → expect more KOLs. Add this to your scoring immediately.</div>
+      <div class="ins ir">🚨 <b>Graduated tokens kill your upside.</b> The $58.8k graduation cap means any token that already graduated at entry gives you zero upside multiple. Auto-exclude or reduce to 0.01 BNB probe only if current_mcap ≥ $55k.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

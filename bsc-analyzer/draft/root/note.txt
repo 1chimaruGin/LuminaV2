@@ -1,0 +1,7 @@
+first_buy->second_buy
+C->E
+B->A
+A->D
+C->B
+D->B
+

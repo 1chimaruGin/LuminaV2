@@ -1,0 +1,365 @@
+{
+  "model_type": "lightgbm_binary_v3",
+  "version": "v3",
+  "target": "peak_mult >= 2",
+  "cv_mode": "time_blocked_no_leakage",
+  "n_splits": 5,
+  "feature_names": [
+    "kol1_idx",
+    "kol2_idx",
+    "kol1_tier_rank",
+    "kol2_tier_rank",
+    "combo_2x_rate_smoothed",
+    "combo_log_n",
+    "kol_count_at_entry",
+    "kol1_buy_usd",
+    "kol2_buy_usd",
+    "combined_notional",
+    "delta_blocks",
+    "entry_mcap",
+    "bonding_curve_pct",
+    "age_blocks",
+    "dev_sell_usd",
+    "dev_sell_pct",
+    "holder_count",
+    "deployer_grads",
+    "deployer_grad_rate",
+    "hour_utc",
+    "dow",
+    "bnb_price",
+    "btc_4h_chg",
+    "bnb_4h_chg",
+    "k1k2_ratio",
+    "dev_sell_rate",
+    "deployer_reputation_score",
+    "name_len",
+    "name_cjk_ratio",
+    "kol1_buy_pct_mcap",
+    "deployer_launches"
+  ],
+  "n_features": 31,
+  "model_params": {
+    "objective": "binary",
+    "metric": "auc",
+    "n_estimators": 100,
+    "max_depth": 6,
+    "num_leaves": 63,
+    "min_child_samples": 10,
+    "learning_rate": 0.1,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "is_unbalance": true,
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "cv_metrics": {
+    "auc": 0.7636,
+    "prec": 0.5807,
+    "rec": 0.5047,
+    "f1": 0.5311
+  },
+  "oof_auc": 0.7509,
+  "combo_base_rate": 0.3038,
+  "combo_stats": {
+    "A\u2192B": {
+      "smoothed_rate": 0.1736,
+      "n": 15
+    },
+    "A\u2192C": {
+      "smoothed_rate": 0.2687,
+      "n": 51
+    },
+    "A\u2192D": {
+      "smoothed_rate": 0.3165,
+      "n": 15
+    },
+    "A\u2192E": {
+      "smoothed_rate": 0.2762,
+      "n": 2
+    },
+    "A\u2192F": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "A\u2192G": {
+      "smoothed_rate": 0.325,
+      "n": 11
+    },
+    "A\u2192H": {
+      "smoothed_rate": 0.2948,
+      "n": 4
+    },
+    "A\u2192J": {
+      "smoothed_rate": 0.3365,
+      "n": 4
+    },
+    "A\u2192K": {
+      "smoothed_rate": 0.3356,
+      "n": 13
+    },
+    "B\u2192A": {
+      "smoothed_rate": 0.3718,
+      "n": 34
+    },
+    "B\u2192C": {
+      "smoothed_rate": 0.2799,
+      "n": 41
+    },
+    "B\u2192D": {
+      "smoothed_rate": 0.3474,
+      "n": 9
+    },
+    "B\u2192E": {
+      "smoothed_rate": 0.3774,
+      "n": 12
+    },
+    "B\u2192G": {
+      "smoothed_rate": 0.3216,
+      "n": 2
+    },
+    "B\u2192H": {
+      "smoothed_rate": 0.4313,
+      "n": 8
+    },
+    "C\u2192A": {
+      "smoothed_rate": 0.2374,
+      "n": 73
+    },
+    "C\u2192B": {
+      "smoothed_rate": 0.2415,
+      "n": 30
+    },
+    "C\u2192D": {
+      "smoothed_rate": 0.3347,
+      "n": 34
+    },
+    "C\u2192E": {
+      "smoothed_rate": 0.313,
+      "n": 9
+    },
+    "C\u2192G": {
+      "smoothed_rate": 0.3365,
+      "n": 4
+    },
+    "C\u2192H": {
+      "smoothed_rate": 0.3369,
+      "n": 1
+    },
+    "C\u2192I": {
+      "smoothed_rate": 0.3369,
+      "n": 1
+    },
+    "C\u2192J": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "C\u2192K": {
+      "smoothed_rate": 0.2161,
+      "n": 22
+    },
+    "D\u2192A": {
+      "smoothed_rate": 0.3722,
+      "n": 42
+    },
+    "D\u2192B": {
+      "smoothed_rate": 0.2569,
+      "n": 27
+    },
+    "D\u2192C": {
+      "smoothed_rate": 0.2763,
+      "n": 78
+    },
+    "D\u2192E": {
+      "smoothed_rate": 0.3573,
+      "n": 11
+    },
+    "D\u2192G": {
+      "smoothed_rate": 0.283,
+      "n": 5
+    },
+    "D\u2192H": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "D\u2192I": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "D\u2192J": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "D\u2192K": {
+      "smoothed_rate": 0.3774,
+      "n": 12
+    },
+    "E\u2192A": {
+      "smoothed_rate": 0.3106,
+      "n": 6
+    },
+    "E\u2192B": {
+      "smoothed_rate": 0.3241,
+      "n": 8
+    },
+    "E\u2192C": {
+      "smoothed_rate": 0.3106,
+      "n": 6
+    },
+    "E\u2192D": {
+      "smoothed_rate": 0.2948,
+      "n": 4
+    },
+    "E\u2192G": {
+      "smoothed_rate": 0.3511,
+      "n": 3
+    },
+    "E\u2192J": {
+      "smoothed_rate": 0.2762,
+      "n": 2
+    },
+    "F\u2192A": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "F\u2192B": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "G\u2192A": {
+      "smoothed_rate": 0.2642,
+      "n": 3
+    },
+    "G\u2192C": {
+      "smoothed_rate": 0.2722,
+      "n": 6
+    },
+    "G\u2192E": {
+      "smoothed_rate": 0.3369,
+      "n": 1
+    },
+    "G\u2192H": {
+      "smoothed_rate": 0.3369,
+      "n": 1
+    },
+    "G\u2192I": {
+      "smoothed_rate": 0.3076,
+      "n": 3
+    },
+    "H\u2192A": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "H\u2192B": {
+      "smoothed_rate": 0.2762,
+      "n": 2
+    },
+    "H\u2192C": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "H\u2192E": {
+      "smoothed_rate": 0.2762,
+      "n": 2
+    },
+    "H\u2192G": {
+      "smoothed_rate": 0.3369,
+      "n": 1
+    },
+    "H\u2192J": {
+      "smoothed_rate": 0.3369,
+      "n": 1
+    },
+    "I\u2192D": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "I\u2192E": {
+      "smoothed_rate": 0.3369,
+      "n": 1
+    },
+    "I\u2192K": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "J\u2192C": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "J\u2192D": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "J\u2192E": {
+      "smoothed_rate": 0.2893,
+      "n": 1
+    },
+    "K\u2192A": {
+      "smoothed_rate": 0.2899,
+      "n": 32
+    },
+    "K\u2192B": {
+      "smoothed_rate": 0.2884,
+      "n": 8
+    },
+    "K\u2192C": {
+      "smoothed_rate": 0.3269,
+      "n": 20
+    },
+    "K\u2192D": {
+      "smoothed_rate": 0.3491,
+      "n": 6
+    },
+    "K\u2192E": {
+      "smoothed_rate": 0.3782,
+      "n": 4
+    },
+    "K\u2192G": {
+      "smoothed_rate": 0.283,
+      "n": 5
+    },
+    "K\u2192J": {
+      "smoothed_rate": 0.3671,
+      "n": 2
+    }
+  },
+  "feature_importance": {
+    "entry_mcap": 241,
+    "delta_blocks": 162,
+    "kol2_buy_usd": 154,
+    "kol1_buy_pct_mcap": 139,
+    "bnb_price": 130,
+    "combined_notional": 125,
+    "name_len": 104,
+    "combo_log_n": 103,
+    "k1k2_ratio": 101,
+    "kol1_buy_usd": 99,
+    "combo_2x_rate_smoothed": 92,
+    "age_blocks": 88,
+    "holder_count": 81,
+    "deployer_launches": 81,
+    "deployer_reputation_score": 79,
+    "deployer_grad_rate": 66,
+    "btc_4h_chg": 63,
+    "bnb_4h_chg": 60,
+    "name_cjk_ratio": 55,
+    "dev_sell_pct": 52,
+    "dev_sell_rate": 51,
+    "dev_sell_usd": 48,
+    "hour_utc": 46,
+    "kol2_idx": 37,
+    "dow": 37,
+    "kol1_idx": 32,
+    "kol1_tier_rank": 11,
+    "deployer_grads": 11,
+    "kol2_tier_rank": 7,
+    "kol_count_at_entry": 3,
+    "bonding_curve_pct": 3
+  },
+  "v3_changes": [
+    "Removed 24 combo one-hot features (caused overfitting to rare combos N=1-2)",
+    "Added combo_2x_rate_smoothed (Bayesian shrinkage, pseudo-count=20)",
+    "Added combo_log_n (log1p training sample size)",
+    "Added kol1_tier_rank, kol2_tier_rank (ordinal)",
+    "Per-fold combo stats prevent leakage in CV"
+  ]
+}
