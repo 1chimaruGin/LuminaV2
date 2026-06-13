@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="lumina-app/public/lumina-logo.svg" alt="Lumina" width="72" />
-</p>
 
 # Lumina V2
 
